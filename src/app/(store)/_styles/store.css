@@ -1,0 +1,7 @@
+/* 商店頁面專用樣式 */
+.store-layout {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* 商店頁面特定的樣式可以放在這裡 */ 

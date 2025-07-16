@@ -1,8 +1,49 @@
 @import "tailwindcss";
 
+@theme {
+  /* 淺色主題配色 */
+  --color-primary-50: #fff7ed;
+  --color-primary-100: #ffedd5;
+  --color-primary-200: #fed7aa;
+  --color-primary-300: #fdba74;
+  --color-primary-400: #fb923c;
+  --color-primary-500: #f97316;
+  --color-primary-600: #ea580c;
+  --color-primary-700: #c2410c;
+  --color-primary-800: #9a3412;
+  --color-primary-900: #7c2d12;
+  --color-primary-950: #431407;
+
+  /* 深色主題配色 */
+  --color-secondary-50: #faf5ff;
+  --color-secondary-100: #f3e8ff;
+  --color-secondary-200: #e9d5ff;
+  --color-secondary-300: #d8b4fe;
+  --color-secondary-400: #c084fc;
+  --color-secondary-500: #a855f7;
+  --color-secondary-600: #9333ea;
+  --color-secondary-700: #7c3aed;
+  --color-secondary-800: #6b21a8;
+  --color-secondary-900: #581c87;
+  --color-secondary-950: #3b0764;
+
+  /* 其他點綴配色 */
+  --color-dj-neon: #ff6b35;
+  --color-dj-dark: #1a0b2e;
+  --color-dj-electric: #00d4ff;
+  --color-dj-pink: #ff0080;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,15 +53,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* 只對需要動畫的元素設定過渡效果 */
+/* .theme_switch,
+.theme_switch .icon,
+button,
+a,
+input,
+textarea,
+select {
+  @apply transition-colors duration-200 ease-in-out;
+} */
 
+/* 背景和文字顏色的過渡 */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+img {
+  @apply object-cover;
 }
